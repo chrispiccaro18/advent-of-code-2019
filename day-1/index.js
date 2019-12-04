@@ -8,7 +8,7 @@ const calcTotalFuel = moduleArray => {
   return moduleArray.reduce((prevValue, module) => {
     return prevValue + fuelCounterUpper(module);
   }, 0);
-}
+};
 
 const array = string.split('\n').map(int => parseInt(int));
 
