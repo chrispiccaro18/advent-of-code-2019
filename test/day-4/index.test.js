@@ -4,6 +4,7 @@ const {
   findGoodNumber,
   digitsToNumber,
   prevGoodNumber,
+  combinedCheckStrictDouble,
 } = require('../../lib/day-4/index');
 const input = require('../../lib/day-4/input');
 
@@ -36,5 +37,17 @@ describe('day 4', () => {
   });
   it('can find good number before a bad number', () => {
     expect(prevGoodNumber(846303)).toBe(799999);
+  });
+  it('only accept actual doubles', () => {
+    expect(combinedCheckStrictDouble(122234)).toEqual({
+      doubles: false,
+      digit: null,
+      digits: [1, 2, 2, 2, 3, 4],
+    });
+    expect(combinedCheckStrictDouble(122233)).toEqual({
+      doubles: true,
+      digit: null,
+      digits: [1, 2, 2, 2, 3, 3],
+    });
   });
 });
